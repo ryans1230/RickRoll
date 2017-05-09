@@ -66,7 +66,7 @@ public class RickRollCommand extends Command {
             //Get the video randomly
             String video = getVideo();
             //Let the sender know we are delivering the video
-            s.sendMessage(TextComponent.fromLegacyText(ChatColor.translateAlternateColorCodes('&', plugin.senderMessage)));
+            s.sendMessage(TextComponent.fromLegacyText(ChatColor.translateAlternateColorCodes('&', plugin.senderMessage).replace("{video}", video).replace("{receiver}", target.getDisplayName())));
             //RICK ROLL THE SKRUB!
             target.sendMessage(new ComponentBuilder("").create());
             TextComponent rickroll = new TextComponent(TextComponent.fromLegacyText(ChatColor.translateAlternateColorCodes('&', plugin.receiverMessage.replace("{sender}", s.getDisplayName()).replace("{video}", video))));
