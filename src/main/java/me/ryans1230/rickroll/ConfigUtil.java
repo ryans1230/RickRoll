@@ -30,7 +30,7 @@ class ConfigUtil {
                 config.set("receiver--cooldown", 0);
             }
             if(config.getString("sender-message").isEmpty()) {
-                config.set("sender-message", "&6You have successfully sent a rick roll to &a{receiver}&6. It has been disguised as: &e{video}");
+                config.set("sender-message", "[&6Rick Astley&r] &6You have successfully sent a rick roll to &a{receiver}&6. It has been disguised as: &e{video}");
             }
             if(config.getString("receiver-message").isEmpty()) {
                 config.set("receiver-message", "[&6Info&r] &6{sender} has sent a video for you to check out: &e{video}\n&aClick here to watch it now!");
