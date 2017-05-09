@@ -1,0 +1,4 @@
+name: RickRoll
+version: ${project.version}
+main: me.ryans1230.rickroll.RickRoll
+description: A plugin to rick roll your friends and players!
