@@ -8,16 +8,16 @@ import java.io.File;
 import java.io.IOException;
 import java.util.Arrays;
 
-public class ConfigUtil {
+@SuppressWarnings("ResultOfMethodCallIgnored")
+class ConfigUtil {
     private volatile RickRoll plugin;
-    public ConfigUtil(RickRoll plugin) {this.plugin = plugin;}
-    public static Configuration c;
-    public static ConfigurationProvider provider = ConfigurationProvider.getProvider(YamlConfiguration.class);
-    public static File conf;
+    ConfigUtil(RickRoll plugin) {this.plugin = plugin;}
+    static Configuration c;
+    private static ConfigurationProvider provider = ConfigurationProvider.getProvider(YamlConfiguration.class);
 
-    public void createRickRoll() {
+    void createRickRoll() {
         File q = plugin.getDataFolder();
-        conf = new File(q, "config.yml");
+        File conf = new File(q, "config.yml");
         try {
             plugin.getDataFolder().mkdir();
             conf.createNewFile();
