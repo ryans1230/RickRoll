@@ -22,6 +22,9 @@ sender-cooldown: 0
 #How fast the receiver can be rick rolled (in seconds). O to disable
 receiver-cooldown: 0
 
+#The format for the error message. DOES NOT APPLY TO SENT RICK ROLLS. Must contain "{message}"
+prefix: '[&cRick Astley&r] &c{message}'
+
 #Message the sender will see when the rick roll is sent. Must contain "{receiver}" and "{video}
 sender-message: '[&6Rick Astley&r] &6You have successfully sent a rick roll to &a{receiver}&6. It has
   been disguised as: &e{video}'

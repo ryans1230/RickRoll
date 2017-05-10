@@ -26,7 +26,7 @@ public class RickRollCommand extends Command {
     @Override
     public void execute(CommandSender sender, String[] args) {
         if (!(sender instanceof ProxiedPlayer)) {
-            sender.sendMessage(TextComponent.fromLegacyText(ChatColor.translateAlternateColorCodes('&', "&c[Rick Astley] You must be a online to use this command!")));
+            sender.sendMessage(TextComponent.fromLegacyText(ChatColor.translateAlternateColorCodes('&', plugin.prefix.replace("{message}", "You must be a online to use this command!"))));
         } else {
             ProxiedPlayer s = (ProxiedPlayer) sender;
             if (args.length == 0) {
@@ -52,16 +52,16 @@ public class RickRollCommand extends Command {
     private void processRickRoll(ProxiedPlayer s, ProxiedPlayer target) {
         if (s.equals(target)) {
             //Can't rick roll yourself, skrub
-            s.sendMessage(TextComponent.fromLegacyText(ChatColor.translateAlternateColorCodes('&', "&c[Rick Astley] You cannot rick roll yourself!")));
+            s.sendMessage(TextComponent.fromLegacyText(ChatColor.translateAlternateColorCodes('&', plugin.prefix.replace("{message}", "You cannot rick roll yourself!"))));
         } else if (rollCooldown.containsKey(s.getUniqueId()) && rollCooldown.get(s.getUniqueId()) > System.currentTimeMillis()) {
             //Easy there, it's not a race!
-            s.sendMessage(TextComponent.fromLegacyText(ChatColor.translateAlternateColorCodes('&', "&c[Rick Astley] You may only use this command once every 30 minutes!")));
+            s.sendMessage(TextComponent.fromLegacyText(ChatColor.translateAlternateColorCodes('&', plugin.prefix.replace("{message}", "You may only use this command once every 30 minutes!"))));
         } else if (rollRecent.containsKey(target.getUniqueId()) && rollRecent.get(target.getUniqueId()) > System.currentTimeMillis()) {
             //They probably know its a rick roll already
-            s.sendMessage(TextComponent.fromLegacyText(ChatColor.translateAlternateColorCodes('&', "&c[Rick Astley] " + target.getDisplayName() + " was rick rolled too recently, please try again later.")));
+            s.sendMessage(TextComponent.fromLegacyText(ChatColor.translateAlternateColorCodes('&', plugin.prefix.replace("{message}", target.getDisplayName() + " was rick rolled too recently, please try again later."))));
         } else if (target.hasPermission("rickroll.exempt")) {
             //Probably an owner who gave themselves this permission to get out of it
-            s.sendMessage(TextComponent.fromLegacyText(ChatColor.translateAlternateColorCodes('&', "&c[Rick Astley] Unable to rick roll " + target.getDisplayName())));
+            s.sendMessage(TextComponent.fromLegacyText(ChatColor.translateAlternateColorCodes('&', plugin.prefix.replace("{message}", "Unable to rick roll " + target.getDisplayName()))));
         } else {
             //Get the video randomly
             String video = getVideo();

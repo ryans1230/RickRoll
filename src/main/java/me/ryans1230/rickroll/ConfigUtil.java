@@ -29,6 +29,9 @@ class ConfigUtil {
             if(config.getInt("receiver-cooldown") == 0) {
                 config.set("receiver--cooldown", 0);
             }
+            if(config.getString("prefix").isEmpty()) {
+                config.set("prefix", "[&cRick Astley&r] &c{message}");
+            }
             if(config.getString("sender-message").isEmpty()) {
                 config.set("sender-message", "[&6Rick Astley&r] &6You have successfully sent a rick roll to &a{receiver}&6. It has been disguised as: &e{video}");
             }
